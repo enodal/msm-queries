@@ -12,6 +12,7 @@ class DirectorsController < ApplicationController
 
     render({ :template => "director_templates/details"})
   end
+
   def youngest
     sorted_relations = Director.where.not({ :dob => nil }).order({ :dob => :desc })
     @youngest_director = sorted_relations.at(0).name
@@ -32,5 +33,6 @@ class DirectorsController < ApplicationController
     
     render ({ :template => "director_templates/oldest" })
   end
+  
 
 end
